@@ -8,6 +8,7 @@ class Sessao(Gclass):
     pos = 0
     sortkey = ''
     auto_number = 0
+    nkey =1
     # class attributes, identifier attribute must be the first one on the list
     att = ['_codSessao','_codSala','_fila','_nlugar', '_dia','_hora','_codFilme']
     #class header title
