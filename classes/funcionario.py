@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Apr 30 08:35:56 2024
-
-@author: Ana Rodrigues
-"""
-
 from Classes.gclass import Gclass
 from classes.filme import Filme
 import datetime
