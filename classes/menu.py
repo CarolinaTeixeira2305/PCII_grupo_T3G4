@@ -8,6 +8,7 @@ Created on Tue Apr 23 08:38:31 2024
 # Class Product
 # Import the generic class
 from classes.gclass import Gclass
+from classes.bilhete import Bilhete
 
 class Menu(Gclass):
     obj = dict()
@@ -33,14 +34,17 @@ class Menu(Gclass):
         #     else:
         #         code = str(max(map(int,Product.getatlist('_code'))) + 1)
         # Object attributes
+        if codBilhete in Bilhete.lst:
+            self._codMenu=int(codMenu)
+            self._precoM=float(precoM)
+            self._codBilhete=int(codBilhete)
+            # Add the new object to the FilmeFun list
+            Menu.obj[codMenu] = self
+            Menu.lst.append(codMenu)
+        else:
+            print("O código do bilhete",codBilhete,"não encontrado!")
         
-        self._codMenu=int(codMenu)
-        self._precoM=float(precoM)
-        self._codBilhete=int(codBilhete)
         
-        # Add the new object to the FilmeFun list
-        Menu.obj[codMenu] = self
-        Menu.lst.append(codMenu)
     # Object properties
     # codMenu property getter method
     @property
@@ -50,6 +54,10 @@ class Menu(Gclass):
     @property
     def precoM(self):
         return self._precoM
+
+    @precoM.setter
+    def precoM(self,x):
+        self._precoM=x
     # codBilhete property getter method
     @property
     def codBilhete(self):
