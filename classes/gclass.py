@@ -1,7 +1,3 @@
-"""
-@author: Agnelo Esteves / Carolina Teixeira / Gonçalo Cunha / José Conchinha / Vasco Ribeiro
-(2024) 
-"""""
 # Generic Class
 import sys
 import datetime
