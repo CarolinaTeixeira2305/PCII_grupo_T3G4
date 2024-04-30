@@ -1,6 +1,3 @@
-f"""
-
-"""""
 # Class Product
 # Import the generic class
 from classes.gclass import Gclass
