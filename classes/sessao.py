@@ -6,7 +6,7 @@ Created on Tue Apr 30 08:16:11 2024
 """
 
 from classes.gclass import Gclass
-from classes.film import Filme
+from classes.filme import Filme
 import datetime
 
 class Sessao(Gclass):
