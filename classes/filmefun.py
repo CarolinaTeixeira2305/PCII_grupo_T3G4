@@ -8,7 +8,7 @@ class FilmeFun(Gclass):
     pos = 0
     sortkey = ''
     auto_number = 0 # = 1 in case of auto number on
-    nkey = 1
+    nkey = 2
     # class attributes, identifier attribute must be the first one on the list
     att = ["_codFilme", "_codF"]
     # Class header title
