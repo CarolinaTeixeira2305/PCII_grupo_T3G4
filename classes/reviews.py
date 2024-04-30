@@ -1,4 +1,4 @@
-"""
+f"""
 
 """""
 # Class Product
@@ -52,14 +52,14 @@ class Reviews(Gclass):
         return self._codReview
     @codReview.setter
     def codReview(self,x):
-        codReview=int(x)
+        self._codReview=int(x)
     # nota property getter method
     @property
     def nota(self):
         return self._nota
     @nota.setter
     def nota(self,x):
-        nota=int(x)
+        self._nota=int(x)
     # ncliente property getter method
     @property
     def ncliente(self):
