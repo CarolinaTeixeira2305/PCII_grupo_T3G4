@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Apr 23 08:38:31 2024
-
-@author: rodri
-"""
-
 # Class Product
 # Import the generic class
 from classes.gclass import Gclass
