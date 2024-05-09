@@ -3,7 +3,6 @@
 # Class Product
 # Import the generic class
 from classes.gclass import Gclass
-from classes.bilhete import Bilhete
 
 class Menu(Gclass):
     obj = dict()
@@ -13,13 +12,13 @@ class Menu(Gclass):
     auto_number = 0 # = 1 in case of auto number on
     nkey = 1
     # class attributes, identifier attribute must be the first one on the list
-    att = ["_codMenu", "_precoM", "_codBilhete"]
+    att = ["_codMenu", "_precoM"]
     # Class header title
     header = 'Menu'
     # field description for use in, for example, in input form
-    des = ["Código do Menu", "Preço do Menu", "Código do Bilhete"]
+    des = ["Código do Menu", "Preço do Menu"]
     # Constructor: Called when an object is instantiated
-    def __init__(self, codMenu, precoM, codBilhete):
+    def __init__(self, codMenu, precoM):
         super().__init__()
         # Uncomment in case of auto number on
         # if code == 'None':
@@ -29,17 +28,13 @@ class Menu(Gclass):
         #     else:
         #         code = str(max(map(int,Product.getatlist('_code'))) + 1)
         # Object attributes
-        if codBilhete in Bilhete.lst:
-            self._codMenu=str(codMenu)
-            self._precoM=float(precoM)
-            self._codBilhete=str(codBilhete)
-            # Add the new object to the FilmeFun list
-            Menu.obj[codMenu] = self
-            Menu.lst.append(codMenu)
-        else:
-            print("O código do bilhete",codBilhete,"não encontrado!")
+        self._codMenu=str(codMenu)
+        self._precoM=float(precoM)
+        # Add the new object to the FilmeFun list
+        Menu.obj[codMenu] = self
+        Menu.lst.append(codMenu)
         
-        
+       
     # Object properties
     # codMenu property getter method
     @property
@@ -53,7 +48,4 @@ class Menu(Gclass):
     @precoM.setter
     def precoM(self,x):
         self._precoM=float(x)
-    # codBilhete property getter method
-    @property
-    def codBilhete(self):
-        return self._codBilhete
+ 

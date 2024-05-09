@@ -1,6 +1,6 @@
 
 
-from Classes.gclass import Gclass
+from classes.gclass import Gclass
 from classes.filme import Filme
 import datetime
 

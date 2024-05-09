@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session
-from data import filename
+from datafile import filename
 
 import os
 
@@ -15,15 +15,15 @@ from classes.userlogin import Userlogin
 
 app = Flask(__name__)
 
-Bilhete.read(filename + 'Filme.db')
-Cliente.read(filename + 'Filme.db')
-Filme.read(filename + 'Filme.db')
-FilmeFun.read(filename + 'Filme.db')
-Funcionario.red(filename + "Filme.db")
-Menu.read(filename + 'Filme.db')
-Reviews.read(filename + 'Filme.db')
-Sessao.read(filename + 'Filme.db')
-Userlogin.read(filename + "Filme.db")
+Bilhete.read(filename + 'Filmedata.db')
+Cliente.read(filename + 'Filmedata.db')
+Filme.read(filename + 'Filmedata.db')
+FilmeFun.read(filename + 'Filmedata.db')
+Funcionario.read(filename + "Filmedata.db")
+Menu.read(filename + 'Filmedata.db')
+Reviews.read(filename + 'Filmedata.db')
+Sessao.read(filename + 'Filmedata.db')
+Userlogin.read(filename + "Filmedata.db")
 
 prev_option = ""
 submenu = ""
@@ -48,6 +48,7 @@ def index():
 @app.route("/login")
 def login():
     return lsub.login()
+
 
 @app.route("/logoff")
 def logoff():

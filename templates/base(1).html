@@ -12,29 +12,28 @@
             <ul class="menu">
                 {% if ulogin == None %}
                     <li><a class="button" href="/login">Login</a></li>
-               
+                {% else %}
                     <li><a class="button" href="/logoff">Logoff</a></li>
-                    <li><a class="button" href="/gform/Bilhete">Bilhetes</a></li>
-                    <li><a class="button" href="/submenu?subm=Menu">Menu</a></li>
+                    <li><a class="button" href="/gform/Bilhete">Bilhete</a></li> 
+                    
                     <li><a class="button" href="/submenu?subm=Filmes">Filmes</a></li>
-                    <li><a class="button" href="/submenu?subm=Reviews">Reviews</a></li>
+                    <li><a class="button" href="/submenu?subm=Menu">Menu</a></li>
                     
                     
                     
                     <li><a class="button" style="color:lightblue">User: {{ulogin}}</a></li>
                     
                     <br><br>
-                    {% if submenu == "order" %}
+                    {% if submenu == "Bilhete" %}
                         <li><a class="button" href="/subform/CustomerOrder_OrderProduct?option=''&subm=order">Order lines</a></li>
                         <li><a class="button" href="/order/mapa?option=''">Mapa encomendas</a></li>
                     {% endif %} 
-              <!--      
-                   {% if submenu == "Filmes" %} 
-                        <li><a class="button" href="/gform/Product?subm=Filmes">Em exibição</a></li>
-                        <li><a class="button" href="/productform?subm=Filmes">Compra</a></li>
-                        
+                    
+                    {% if submenu == "product" %}
+                        <li><a class="button" href="/gform/Product?subm=product">Product</a></li>
+                        <li><a class="button" href="/productform?subm=product">Product(foto)</a></li>
                     {% endif %} 
-                    -->
+                    
                 {% endif %}
             </ul>
         </nav>

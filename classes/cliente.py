@@ -34,7 +34,7 @@ class Cliente(Gclass):
         else:
             self._ncliente = str(ncliente)
             self._nomeC = nomeC
-            self._telemovel = int(telemovel)
+            self._telemovel = str(telemovel)
             # Add the new object to the Cliente list
             Cliente.obj[ncliente] = self
             Cliente.lst.append(ncliente)
@@ -62,6 +62,6 @@ class Cliente(Gclass):
     # telemovel property setter method
     @telemovel.setter
     def telemovel(self, x):
-        self._telemovel=int(x)
+        self._telemovel=str(x)
     
     

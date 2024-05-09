@@ -6,7 +6,6 @@
 
 """""
 from flask import Flask, render_template, request, session
-
 from classes.bilhete import Bilhete
 from classes.cliente import Cliente
 from classes.filme import Filme
@@ -17,13 +16,18 @@ from classes.reviews import Reviews
 from classes.sessao import Sessao
 from classes.userlogin import Userlogin
 
+
 prev_option = ""
 
-def gform(cname='',submenu=""):
+def subform(cname="",submenu=""):
     global prev_option
+    tlist = cname.split('_')
+    cnames = tlist[0]
+    scname = tlist[1]
     ulogin=session.get("user")
     if (ulogin != None):
-        cl = eval(cname)
+        cl = eval(cnames)
+        sbl = eval(scname)
         butshow = "enabled"
         butedit = "disabled"
         option = request.args.get("option")
@@ -50,6 +54,9 @@ def gform(cname='',submenu=""):
                 butedit = "enabled"
             elif option == "delete":
                 obj = cl.current()
+                lines = sbl.getlines(getattr(obj, cl.att[0]))
+                for line in lines:
+                    sbl.remove(line)
                 cl.remove(obj.code)
                 if not cl.previous():
                     cl.first()
@@ -66,17 +73,43 @@ def gform(cname='',submenu=""):
                 cl.nextrec()
             elif option == "last":
                 cl.last()
+            elif option[:6] == "delrow":
+                row = int(option.split("_")[1])
+                obj = cl.current()
+                lines = sbl.getlines(getattr(obj, cl.att[0]))
+                print(row,lines[row])
+                sbl.remove(lines[row])
+            elif option == "addrow":
+                butshow = "disabled"
+                butedit = "disabled"
+            elif option == "saverow":
+                obj = cl.current()
+                strobj = getattr(obj, cl.att[0])
+                for i in range(1,len(sbl.att)):
+                    strobj += ";" + request.form[sbl.att[i]]
+                objl = sbl.from_string(strobj)
+                code = str(getattr(objl, sbl.att[0])) + str(getattr(objl, sbl.att[1]))
+                sbl.insert(code)
             elif option == 'exit':
-                return render_template("index.html", ulogin=session.get("user"))
+                return render_template("index.html", ulogin=session.get("user")) 
         prev_option = option
         obj = cl.current()
+        headers = list()
+        objl = list()
         if option == 'insert' or len(cl.lst) == 0:
             obj = dict()
             for att in cl.att:
                 obj[att] = ""
-        return render_template("gform.html", butshow=butshow, butedit=butedit,
-                        cname=cname, obj=obj,att=cl.att,header=cl.header,des=cl.des,
-                        ulogin=session.get("user"),auto_number=cl.auto_number,
-                        submenu=submenu)
+        else:
+            for i in range(1, len(sbl.att)): 
+                    headers.append(sbl.att[i][1:])        
+            lines = sbl.getlines(getattr(obj, cl.att[0])) 
+            for line in lines:
+                objl.append(sbl.obj[line])
+        return render_template("subform.html", butshow=butshow, butedit=butedit,
+                    cname=cname, obj=obj,att=cl.att,header=cl.header,des=cl.des,
+                    ulogin=session.get("user"),objl=objl,headerl=sbl.header,
+                    desl=sbl.des, attl=sbl.att, auto_number=cl.auto_number,
+                    submenu=submenu)
     else:
         return render_template("index.html", ulogin=ulogin)

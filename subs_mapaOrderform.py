@@ -2,32 +2,49 @@
 """
 @author: António Brito / Carlos Bragança
 (2024)
-#objective: subs_gform.py
+#objective: subs_mapaorderform.py
 
 """""
 from flask import Flask, render_template, request, session
 
-from classes.bilhete import Bilhete
-from classes.cliente import Cliente
 from classes.filme import Filme
-from classes.filmefun import FilmeFun
-from classes.funcionario import Funcionario
-from classes.menu import Menu
-from classes.reviews import Reviews
-from classes.sessao import Sessao
-from classes.userlogin import Userlogin
+
+
+# from classes.customer import Customer
+# from classes.product import Product
+# from classes.customerorder import CustomerOrder
+# from classes.orderproduct import OrderProduct
+# from classes.userlogin import Userlogin
+
+from datetime import timedelta
+from datetime import datetime
 
 prev_option = ""
 
-def gform(cname='',submenu=""):
+def gerah(clh):
+    clh.reset()
+    clh("None", CustomerOrder, diahoraselected)
+    objh = clh.obj[clh.lst[0]]
+    return objh
+    
+
+def mapaOrderform(app,cname='',submenu=""):
     global prev_option
+    global diahoraselected
+    
+    cname = 'CustomerOrder'
     ulogin=session.get("user")
     if (ulogin != None):
         cl = eval(cname)
+        clh = eval("Order2Form")
         butshow = "enabled"
         butedit = "disabled"
         option = request.args.get("option")
-        if prev_option == 'insert' and option == 'save':
+        if option == "''":
+            diahoraselected = datetime.today()
+            
+        
+        elif prev_option == 'insert' and option == 'save':
             if (cl.auto_number == 1):
                 strobj = "None"
             else:
@@ -44,18 +61,22 @@ def gform(cname='',submenu=""):
                 att = cl.att[i]
                 setattr(obj, att, request.form[att])
             cl.update(getattr(obj, cl.att[0]))
+            
         else:
             if option == "edit":
                 butshow = "disabled"
                 butedit = "enabled"
+
             elif option == "delete":
                 obj = cl.current()
                 cl.remove(obj.code)
                 if not cl.previous():
                     cl.first()
+
             elif option == "insert":
                 butshow = "disabled"
                 butedit = "enabled"
+
             elif option == 'cancel':
                 pass
             elif option == "first":
@@ -66,17 +87,37 @@ def gform(cname='',submenu=""):
                 cl.nextrec()
             elif option == "last":
                 cl.last()
+            elif option == "previousw":
+                diahoraselected = diahoraselected + timedelta(days=-7)
+
+            elif option == "nextw":
+                diahoraselected = diahoraselected + timedelta(days=7)
+
+            elif option == "selcel":
+                codev = request.args.get("codev")
+                cl.current(codev)
+                obj = cl.current()
+                diahoraselected = obj.date
+                
+                 
+                
             elif option == 'exit':
                 return render_template("index.html", ulogin=session.get("user"))
+        
+        
+        objh = gerah(clh)
         prev_option = option
         obj = cl.current()
         if option == 'insert' or len(cl.lst) == 0:
             obj = dict()
             for att in cl.att:
                 obj[att] = ""
-        return render_template("gform.html", butshow=butshow, butedit=butedit,
+        return render_template("mapaOrderform.html", butshow=butshow, butedit=butedit,
                         cname=cname, obj=obj,att=cl.att,header=cl.header,des=cl.des,
                         ulogin=session.get("user"),auto_number=cl.auto_number,
+                        objh=objh,selectedcell = diahoraselected,
+                        
                         submenu=submenu)
     else:
         return render_template("index.html", ulogin=ulogin)
+
