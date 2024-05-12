@@ -9,9 +9,9 @@ from datafile import filename
 
 from classes.cliente import Cliente
 
+Cliente.read(filename + 'Filmedata.db')
+
 from classes.menu import Menu
-
-
 Cliente.read(filename + 'Filmedata.db')
 
 cname = "Cliente"
