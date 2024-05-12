@@ -13,6 +13,8 @@ from classes.cliente import Cliente
 
 from classes.filme import Filme
 
+from classes.menu import Menu
+
 # objf=Filme.from_string("3;Fast furious;4")
 
 # Filme.insert(getattr(objf,Filme.att[0]))
