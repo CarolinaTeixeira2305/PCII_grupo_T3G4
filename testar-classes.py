@@ -14,6 +14,7 @@ from classes.cliente import Cliente
 from classes.filme import Filme
 
 from classes.menu import Menu
+Cliente.read(filename + 'Filmedata.db')
 
 # objf=Filme.from_string("3;Fast furious;4")
 
