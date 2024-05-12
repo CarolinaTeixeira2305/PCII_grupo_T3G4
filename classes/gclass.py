@@ -1,5 +1,5 @@
 """
-@author: Agnelo Esteves / Carolina Teixeira / Gonçalo Cunha / José Conchinha / Vasco Ribeiro
+@author: Agnelo Esteves / Carolina Teixeira / Gonçalo Alves / José Conchinha / Vasco Ribeiro
 (2024) 
 """""
 # Generic Class
