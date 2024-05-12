@@ -47,5 +47,10 @@ class Menu(Gclass):
     # precoM property setter method
     @precoM.setter
     def precoM(self,x):
-        self._precoM=float(x)
+        try:
+            self._precoM = float(x)
+        except ValueError:
+            print("O preço do menu deve ser um número.")
+
+            
  
