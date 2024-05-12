@@ -12,13 +12,13 @@ class Menu(Gclass):
     auto_number = 0 # = 1 in case of auto number on
     nkey = 1
     # class attributes, identifier attribute must be the first one on the list
-    att = ["_codMenu", "_precoM"]
+    att = ["_codM", "_precoM"]
     # Class header title
     header = 'Menu'
     # field description for use in, for example, in input form
     des = ["Código do Menu", "Preço do Menu"]
     # Constructor: Called when an object is instantiated
-    def __init__(self, codMenu, precoM):
+    def __init__(self, codM, precoM):
         super().__init__()
         # Uncomment in case of auto number on
         # if code == 'None':
@@ -28,18 +28,17 @@ class Menu(Gclass):
         #     else:
         #         code = str(max(map(int,Product.getatlist('_code'))) + 1)
         # Object attributes
-        self._codMenu=str(codMenu)
+        self._codM=str(codM)
         self._precoM=float(precoM)
         # Add the new object to the FilmeFun list
-        Menu.obj[codMenu] = self
-        Menu.lst.append(codMenu)
+        Menu.obj[codM] = self
+        Menu.lst.append(codM)
         
-       
     # Object properties
     # codMenu property getter method
     @property
-    def codMenu(self):
-        return self._codMenu
+    def codM(self):
+        return self._codM
     # precoM property getter method
     @property
     def precoM(self):
@@ -51,6 +50,3 @@ class Menu(Gclass):
             self._precoM = float(x)
         except ValueError:
             print("O preço do menu deve ser um número.")
-
-            
- 
