@@ -44,7 +44,7 @@ class Menu(Gclass):
     @property
     def precoM(self):
         return self._precoM
-
+    # precoM property setter method
     @precoM.setter
     def precoM(self,x):
         self._precoM=float(x)
