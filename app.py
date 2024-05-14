@@ -98,7 +98,9 @@ def ordermapa():
 
     return render_template("uc.html", ulogin=session.get("user"),submenu=submenu)
 
-
+@app.route('/reviews')
+def show_reviews():
+    return render_template('reviews.html')
 
     
 if __name__ == '__main__':

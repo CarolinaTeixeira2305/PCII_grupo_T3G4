@@ -12,7 +12,7 @@ nav{
     margin: 0;
     padding: 8px;
     height: 100%;
-    background-color: #334a94;
+    background-color: #8C2D19;
 
 }
 
@@ -30,12 +30,12 @@ nav{
 }
 
 .button:link{
-    background-color: #334a94;
+    background-color: #8C2D19;
     color: #ffffff;
 }
 
 .button:hover{
-    background-color: lightblue;
+    background-color:  black;
 }
 
 .dados{
@@ -45,7 +45,7 @@ nav{
 
 .button1{
     font-family: Arial;
-    background-color: #334a94;
+    background-color: #8C2D19;
     font-size: 1em;
     font-style: none;
     color: white;
@@ -54,7 +54,7 @@ nav{
 }
 
 .button1:link{
-    background-color: #334a94;
+    background-color:  #8C2D19;
     color: #ffffff;
 }
 
