@@ -76,7 +76,8 @@ def gform(cname='',submenu=""):
                 obj[att] = ""
         return render_template("gform.html", butshow=butshow, butedit=butedit,
                         cname=cname, obj=obj,att=cl.att,header=cl.header,des=cl.des,
-                        ulogin=session.get("user"),auto_number=cl.auto_number,
+                        ulogin=session.get("user"),
+                        usergroup=session.get("usergroup"),auto_number=cl.auto_number,
                         submenu=submenu)
     else:
         return render_template("index.html", ulogin=ulogin)

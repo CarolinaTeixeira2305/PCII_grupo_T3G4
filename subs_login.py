@@ -23,5 +23,6 @@ def chklogin():
     resul = Userlogin.chk_password(user, password)
     if resul == "Valid":
         session["user"] = user
-        return render_template("index.html", ulogin=session.get("user"))
-    return render_template("login.html", user=user, password = password, ulogin=session.get("user"),resul = resul)
+        session["usergroup"] = Userlogin.obj[user].usergroup
+        return render_template("index.html", ulogin=session.get("user"), usergroup=session.get("usergroup"))
+    return render_template("login.html", user=user, password = password, ulogin=session.get("user"), usergroup=session.get("usergroup"),resul = resul)

@@ -14,19 +14,40 @@
                     <li><a class="button" href="/login">Login</a></li>
                 
                 {% else %}
-                    <li><a class="button" href="/logoff">Logoff</a></li>
+               <!--
+               <li><a class="button" href="/logoff">Logoff</a></li> 
                     <li><a class="button" href="/gform/Bilhete">Bilhetes</a></li>
                     <li><a class="button" href="/gform/Menu">Menu</a></li>
                     <li><a class="button" href="/gform/Filme">Filmes</a></li>
-                    <li><a class="button" href="/reviews">Reviews</a></li>
-
-
+                    <li><a class="button" href="/reviews">Reviews</a></li> --> 
+                    
+                   
                     
                     
                     
+                 
+                    {% if usergroup == "funcionario" %} 
+                    
+                    <li><a class="button" href="/logoff">Logoff</a></li> 
+                      <li><a class="button" href="/gform/Bilhete">Bilhetes</a></li>
+                      <li><a class="button" href="/gform/Menu">Menu</a></li>
+                      <li><a class="button" href="/gform/Filme">Filmes</a></li>
                     <li><a class="button" style="color:pink">User: {{ulogin}}</a></li>
+                        
+                    {% endif %}
                     
-                    <br><br>
+                    {% if usergroup == "cliente" %}
+                        
+                    
+                    <li><a class="button" href="/logoff">Logoff</a></li> 
+                      <li><a class="button" href="/gform/Bilhete">Bilhetes</a></li>
+                      <li><a class="button" href="/gform/Menu">Menu</a></li>
+                      <li><a class="button" href="/gform/Filme">Filmes</a></li>
+                      <li><a class="button" href="/gform/reviews">Reviews</a></li>
+                    <li><a class="button" style="color:pink">User: {{ulogin}}</a></li>
+                    {% endif %}
+                    
+                              
                     <!-- 
                     {% if submenu == "order" %}
                         <li><a class="button" href="/subform/CustomerOrder_OrderProduct?option=''&subm=order">Order lines</a></li>

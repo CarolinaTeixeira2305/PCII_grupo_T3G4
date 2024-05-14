@@ -43,7 +43,7 @@ import subs_productFoto as productFotosub
 
 @app.route("/")
 def index():
-    return render_template("index.html", ulogin=session.get("user"))
+    return render_template("index.html", ulogin=session.get("user"), usergroup=session.get("usergroup"))
     
 @app.route("/login")
 def login():
@@ -62,7 +62,7 @@ def chklogin():
 def getsubm():
     global submenu
     submenu = request.args.get("subm")
-    return render_template("index.html", ulogin=session.get("user"),submenu=submenu)
+    return render_template("index.html", ulogin=session.get("user"),usergroup=session.get("usergroup"),submenu=submenu)
 
 @app.route("/gform/<cname>", methods=["post","get"])
 def gform(cname=''):
@@ -96,7 +96,7 @@ def productFoto():
 @app.route("/order/mapa", methods=["post","get"])
 def ordermapa():
 
-    return render_template("uc.html", ulogin=session.get("user"),submenu=submenu)
+    return render_template("uc.html", ulogin=session.get("user"),usergroup=session.get("usergroup"),submenu=submenu)
 
 @app.route('/reviews')
 def show_reviews():
