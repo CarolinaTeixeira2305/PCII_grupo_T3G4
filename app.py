@@ -39,6 +39,7 @@ import subs_gformT as gfTsub
 import subs_hform as gfhsub
 import subs_subform as gfsubsub
 import subs_productFoto as productFotosub
+import subs_gform1 as gfsub1
 
 
 @app.route("/")
@@ -68,6 +69,11 @@ def getsubm():
 def gform(cname=''):
     submenu = request.args.get("subm")
     return gfsub.gform(cname,submenu)
+
+@app.route("/gform1/<cname>", methods=["post","get"])
+def gform1(cname=''):
+    submenu = request.args.get("subm")
+    return gfsub1.gform1(cname,submenu)
 
 @app.route("/gformT/<cname>", methods=["post","get"])
 def gformT(cname=''):
