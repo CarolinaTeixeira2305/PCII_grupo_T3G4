@@ -5,84 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cinecartaz</title>
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+        .movie {
+            position: relative;
+            width: calc(25% - 40px); /* 25% para 4 filmes por linha com margens maiores */
+            margin: 63px; /* Aumentando a margem para criar um espaço maior entre as imagens */
             text-align: center;
         }
 
-        th {
-            background-color: #8C2D19;
-            color: #fff;
+        .movie img {
+            max-width: 100%;
+            max-height: 150px;
         }
 
-        img {
-            max-width: 100px;
-            max-height: 150px;
+        .movie::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Cor da vinheta (preto com 50% de transparência) */
+            border-radius: 10px; /* Borda arredondada */
+            opacity: 0; /* Inicialmente transparente */
+            transition: opacity 0.3s ease; /* Transição suave */
+        }
+
+        .movie:hover::before {
+            opacity: 1; /* Torna a vinheta visível ao passar o mouse */
+        }
+
+        .movie p {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            color: #fff; /* Cor do texto */
+            font-weight: bold; /* Negrito */
+            z-index: 1; /* Garante que o texto fique acima da vinheta */
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 20px; /* Espaçamento acima do título */
+            padding-top: 10px; /* Espaçamento interno acima do título */
+            border-top: 3px solid #8C2D19; /* Borda colorida em cima */
+            color: #8C2D19; /* Cor do texto do título */
+            font-size: 24px; /* Tamanho da fonte do título */
+            font-weight: bold; /* Negrito */
         }
     </style>
 </head>
 <body>
 
-<h2>Filmes</h2>
+<h2 class="title">Filmes</h2>
 
-<table>
-  <tr>
-    <th>Filme</th>
-    <th>Foto</th>
-  </tr>
-  <tr>
-    <td>The GodFather</td>
-    <td><img src="thegodfather.jpeg" alt="The GodFather"></td>
-  </tr>
-  <tr>
-    <td>Casablanca</td>
-    <td><img src="casablanca.jpeg" alt="Casablanca"></td>
-  </tr>
-  <tr>
-    <td>Fight Club</td>
-    <td><img src="fightclub.jpeg" alt="Fight Club"></td>
-  </tr>
-  <tr>
-    <td>Inception</td>
-    <td><img src="inception.jpeg" alt="Inception"></td>
-  </tr>
-  <tr>
-    <td>The Matrix</td>
-    <td><img src="thematrix.jpeg" alt="The Matrix"></td>
-  </tr>
-  <tr>
-    <td>Joker</td>
-    <td><img src="joker.jpeg" alt="Joker"></td>
-  </tr>
-  <tr>
-    <td>Se7en</td>
-    <td><img src="se7en.jpeg" alt="Se7en"></td>
-  </tr>
-  <tr>
-    <td>The Intouchables</td>
-    <td><img src="theintouchables.jpeg" alt="The Intouchables"></td>
-  </tr>
-  <tr>
-    <td>Inside Out</td>
-    <td><img src="insideout.jpeg" alt="Inside Out"></td>
-  </tr>
-  <tr>
-     <td>Shrek</td>
-     <td><img src="shrek.jpeg" alt="Shrek"></td>
-   </tr>
-   <tr>
-      <td>Back to the Future</td>
-      <td><img src="backtothefuture.jpg" alt="Back to the Future"></td>
-    </tr>
-   
- 
-</table>
+<div class="container">
+    <div class="movie">
+        <img src="thegodfather.jpeg" alt="The GodFather">
+        <p>The GodFather</p>
+    </div>
+    <div class="movie">
+        <img src="casablanca.jpeg" alt="Casablanca">
+        <p>Casablanca</p>
+    </div>
+    <div class="movie">
+        <img src="fightclub.jpeg" alt="Fight Club">
+        <p>Fight Club</p>
+    </div>
+    <div class="movie">
+        <img src="inception.jpeg" alt="Inception">
+        <p>Inception</p>
+    </div>
+    <div class="movie">
+        <img src="thematrix.jpeg" alt="The Matrix">
+        <p>The Matrix</p>
+    </div>
+    <div class="movie">
+        <img src="joker.jpeg" alt="Joker">
+        <p>Joker</p>
+    </div>
+    <div class="movie">
+        <img src="se7en.jpeg" alt="Se7en">
+        <p>Se7en</p>
+    </div>
+    <div class="movie">
+        <img src="theintouchables.jpeg" alt="The Intouchables">
+        <p>The Intouchables</p>
+    </div>
+    <div class="movie">
+        <img src="insideout.jpeg" alt="Inside Out">
+        <p>Inside Out</p>
+    </div>
+    <div class="movie">
+        <img src="shrek.jpeg" alt="Shrek">
+        <p>Shrek</p>
+    </div>
+    <div class="movie">
+        <img src="backtothefuture.jpg" alt="Back to the Future">
+        <p>Back to the Future</p>
+    </div>
+    <div class="movie">
+        <img src="theshinning.jpeg" alt="The Shinning">
+        <p>The Shining</p>
+    </div>
+</div>
 
 </body>
-</html>
