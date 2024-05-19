@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="container" id="filme-container">
+        <table>
+            <tr>
+                {% for movie in filmes %}
+                    {% if loop.index0 % 3 == 0 %}
+                        </tr><tr>
+                    {% endif %}
+                    <td class="filme">
+                        <div class="movie">
+                            <img src="{{ url_for('static', filename='images/' + movie.codFilme + '.jpeg') }}" alt="{{ movie.nomeF }}" style="width: 200px; height: 300px; display: block; margin: 0 auto">
+                            <p style="text-align: center;">{{ movie.nomeF }}</p>
+                        </div>
+                    </td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+{% endblock %}

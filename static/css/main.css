@@ -1,85 +1,84 @@
-body{
+body {
     margin: 0;
     min-height: 300px;
 }
 
-nav{
+nav {
     width: 100%;
     float: left;
 }
 
-.menu{
+.menu {
     margin: 0;
     padding: 8px;
     height: 100%;
     background-color: #8C2D19;
-
 }
 
-.menu li{
+.menu li {
     display: inline;
 }
 
-.button{
+.button {
     font-family: Arial;
     font-size: 1em;
-    font-style: none;
     color: #ffffff;
     padding: 8px;
     text-decoration: none;
 }
 
-.button:link{
+.button:link {
     background-color: #8C2D19;
     color: #ffffff;
 }
 
-.button:hover{
-    background-color:  black;
+.button:hover {
+    background-color: black;
 }
 
-.dados{
-        text-align: center;
-        font-size: 1em;
+.dados {
+    text-align: center;
+    font-size: 1em;
 }
 
-.button1{
+.button1 {
     font-family: Arial;
     background-color: #8C2D19;
     font-size: 1em;
-    font-style: none;
     color: white;
     padding: 4px;
-    border-radius: 5px}
+    border-radius: 5px;
 }
 
-.button1:link{
-    background-color:  #8C2D19;
+.button1:link {
+    background-color: #8C2D19;
     color: #ffffff;
 }
 
-.button1:hover{
+.button1:hover {
     background-color: lightblue;
 }
 
-.button1:disabled{
+.button1:disabled {
     background-color: lightgray;
 }
 
 table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 50%;
-  margin-left: auto; 
-  margin-right: auto;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    background-color: white;
+    width: 50%;
+    margin-left: auto; 
+    margin-right: auto;
 }
 
 td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+    border: none;
+    text-align: left;
+    padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+    background-color: white;
 }
+
