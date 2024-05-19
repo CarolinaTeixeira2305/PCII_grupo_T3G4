@@ -14,7 +14,10 @@ from classes.cliente import Cliente
 from classes.filme import Filme
 
 from classes.menu import Menu
-Cliente.read(filename + 'Filmedata.db')
+
+from classes.userlogin import Userlogin
+
+Userlogin.read(filename + 'Filmedata.db')
 
 # objf=Filme.from_string("3;Fast furious;4")
 
@@ -24,14 +27,14 @@ Cliente.read(filename + 'Filmedata.db')
 
 # Cliente.insert(getattr(objc,Filme.att[0]))
 
-Reviews.read(filename + 'Filmedata.db')
+Userlogin.read(filename + 'Filmedata.db')
 
-obj = Reviews.from_string("1;5;2;2")
+obj = Userlogin.from_string("User2;cliente;pass11")
 #    att = ['_codBilhete','_quantidade','_precoB', '_codFilme', '_ncliente', "_codM"]
 
-# print("objeto sem estar gravado ",obj)
+print("objeto sem estar gravado ",obj)
 
-# Reviews.insert(getattr(obj,Reviews.att[0]))
+Userlogin.insert(getattr(obj,Userlogin.att[0]))
 
 # obj = Reviews.from_string("2;7")
 # Reviews.insert(getattr(obj,Reviews.att[0]))

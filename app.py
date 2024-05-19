@@ -42,6 +42,8 @@ import subs_productFoto as productFotosub
 import subs_gform1 as gfsub1
 
 
+ 
+
 @app.route("/")
 def index():
     return render_template("index.html", ulogin=session.get("user"), usergroup=session.get("usergroup"))
@@ -108,7 +110,16 @@ def ordermapa():
 def show_reviews():
     return render_template('reviews.html')
 
-    
+@app.route('/catalogo')
+def catalogo():
+    filmes = Filme.get_all_filmes()  
+    return render_template("catalogo.html", filmes=filmes, ulogin=session.get("user"), usergroup=session.get("usergroup"))
+
+@app.route('/menucliente')
+def menu():
+    return render_template("menucliente.html", ulogin=session.get("user"), usergroup=session.get("usergroup"))
+
+
 if __name__ == '__main__':
     app.run(debug=True)
     #app.run()
