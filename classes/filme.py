@@ -45,3 +45,7 @@ class Filme(Gclass):
     @precoF.setter
     def precoF(self, precoF):
         self._precoF = float(precoF)
+    
+    @classmethod
+    def get_all_filmes(cls):
+        return [cls.obj[cod] for cod in cls.lst]
