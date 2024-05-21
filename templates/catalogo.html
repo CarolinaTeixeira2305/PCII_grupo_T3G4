@@ -8,6 +8,7 @@
 
 {% block content %}
     <div class="container" id="filme-container">
+        <h2 style="text-align: center;">Filmes</h2>
         <table>
             <tr>
                 {% for movie in filmes %}
@@ -16,7 +17,7 @@
                     {% endif %}
                     <td class="filme">
                         <div class="movie">
-                            <img src="{{ url_for('static', filename='images/' + movie.codFilme + '.jpeg') }}" alt="{{ movie.nomeF }}" style="width: 200px; height: 300px; display: block; margin: 0 auto">
+                            <img src="{{ url_for('static', filename='images/' + movie.codFilme + '.jpeg') }}" alt="{{ movie.nomeF }}" style="width: 300px; height: 400px; display: block; margin: 0 auto">
                             <p style="text-align: center;">{{ movie.nomeF }}</p>
                         </div>
                     </td>
