@@ -24,12 +24,12 @@ class Reviews(Gclass):
     def __init__(self, codReview, nota, ncliente, codFilme):
         super().__init__()
         # Uncomment in case of auto number on
-        # if code == 'None':
-        #     codes = Product.getatlist('_code')
-        #     if codes == []:
-        #         code = str(1)
-        #     else:
-        #         code = str(max(map(int,Product.getatlist('_code'))) + 1)
+        if codReview == 'None':
+            codes = Reviews.getatlist('_code')
+            if codes == []:
+                codReview = str(1)
+            else:
+                codReview = str(max(map(int,Reviews.getatlist('_code'))) + 1)
         # Object attributes
         if ncliente in Cliente.lst:
             if codFilme in Filme.lst:
