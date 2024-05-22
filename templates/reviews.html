@@ -21,6 +21,8 @@
                     <td>
                     
                         <form id="form" action="/reviews?option=save" method="post">
+                            
+                        
                             {% for key in att %}
                               <label for="{{key}}">{{des[loop.index-1]}}:</label>
                               {% if loop.index == 1 and butedit == 'enabled' and auto_number == 1 %}
@@ -40,32 +42,27 @@
                                       <input type="text" {{butedit}} id="{{key}}" name="{{key}}" value="{{obj[key]}}" size="30"/>
                                   {%endif%}
                               {%endif%}
-                              <br><br>
+                              <br>
+                              
                             {% endfor %}
+                            <select name="_codFilme" id="_codFilme"  >
+                              	{% for valor in Filmes.values() %}               
+                              		<option value="{{valor.code}}"> {{valor.code}} - {{Filmes[valor.code].name}}</option>
+                              	 {% endfor %}       
+                              </select>
+                              <br>
                         </form>
                     </td>
                     <td>
                     
                     
-                     <iframe width="560" height="315" 
-                         src="{{obj['_link']}}"
-                         title="YouTube video player" frameborder="0" 
-                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                     
+                    
                     </td>
                     
                     <td>
-                    teste combo
+                   
                     
-                        <select name="_tipo" id="_tipo"  >
-                        	{% for valor in Filmes.values() %}               
-                        		<option value="{{valor.code}}"> {{valor.code}} - {{Filmes[valor.code].name}}</option>
-                        	 {% endfor %}
-                        	
-                        	
                         
-                        </select> 
 
 
                     

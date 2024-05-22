@@ -1,0 +1,43 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class = "dados">
+        <img src="/static/images/Bilhete.png" alt="film" width="300" height="200">
+        <h1>Compra de bilhetes</h1>
+        <br>
+        <button id="edit" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=edit'" class="button1">Edit</button>
+        <button id="delete" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=delete'" class="button1">Delete</button>
+        <button id="insert" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=insert'" class="button1">Insert</button>
+        <button id="save" type="submit" form="form" class = "button1" {{butedit}}>Save</button>
+        <button id="cancel" type="button" {{butedit}} onclick="window.location.href = '/gformCliente/{{cname}}?option=cancel'" class="button1">Cancel</button>
+        <br><br>
+            <form id="form" action="/gformCliente/{{cname}}?option=save" method="post">
+                
+                  <label for="{{'_codBilhete'}}">{{"Código do Bilhete"}}:</label>
+                    <input type="text" disabled id="{{'_codBilhete'}}" name="{{'_codBilhete'}}" value="{{obj[_codBilhete]}}" size="30"/>
+                <br><br>
+                <label for="{{'_quantidade'}}">{{"Quantidade"}}:</label>
+                  <input type="text" disabled id="{{'_quantidade'}}" name="{{'_quantidade'}}" value="{{obj[_quantidade]}}" size="30"/>
+                <br><br>
+                 <label for="{{'_codFilme'}}">{{"Código do Filme"}}:</label>
+                   <input type="text" disabled id="{{'_codFilme'}}" name="{{'_codFilme'}}" value="{{obj[_codFilme]}}" size="30"/>
+                 <br><br>
+                  <label for="{{'_codMenu'}}">{{"Código do Menu"}}:</label>
+                    <input type="text" disabled id="{{'_codMenu'}}" name="{{'_codMenu'}}" value="{{obj[_codMenu]}}" size="30"/>
+                  <br><br>
+               
+        </form>
+        <br>
+        <button id="first" type="button" {{butshow}} onclick="window.location.href = '/gformCLiente/{{cname}}?option=first'" class="button1">First</button>
+        <button id="previous" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=previous'" class="button1">Previous</button>
+        <button id="next" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=next'" class="button1">Next</button>
+        <button id="last" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=last'" class="button1">Last</button>
+    </div>
+
+{% endblock %}
