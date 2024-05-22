@@ -2,7 +2,7 @@
 """
 @author: António Brito / Carlos Bragança
 (2024)
-#objective: subs_gformCLiente.py
+#objective: subs_gform.py
 
 """""
 from flask import Flask, render_template, request, session
@@ -19,7 +19,7 @@ from classes.userlogin import Userlogin
 
 prev_option = ""
 
-def gform1(cname='',submenu=""):
+def gformCliente(cname='',submenu=""):
     global prev_option
     ulogin=session.get("user")
     if (ulogin != None):
@@ -74,7 +74,7 @@ def gform1(cname='',submenu=""):
             obj = dict()
             for att in cl.att:
                 obj[att] = ""
-        return render_template("gform1.html", butshow=butshow, butedit=butedit,
+        return render_template("gformCliente.html", butshow=butshow, butedit=butedit,
                         cname=cname, obj=obj,objFilme=Filme.obj, att=cl.att,header=cl.header,des=cl.des,
                         ulogin=session.get("user"),
                         usergroup=session.get("usergroup"),auto_number=cl.auto_number,

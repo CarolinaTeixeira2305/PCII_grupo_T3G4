@@ -40,7 +40,7 @@ import subs_hform as gfhsub
 import subs_subform as gfsubsub
 import subs_productFoto as productFotosub
 import subs_gform1 as gfsub1
-
+import subs_gformCliente as gfsubCliente
 
  
 
@@ -76,6 +76,11 @@ def gform(cname=''):
 def gform1(cname=''):
     submenu = request.args.get("subm")
     return gfsub1.gform1(cname,submenu)
+
+@app.route("/gformCliente/<cname>", methods=["post","get"])
+def gformCliente(cname=''):
+    submenu = request.args.get("subm")
+    return gfsubCliente.gformCliente(cname,submenu)
 
 @app.route("/gformT/<cname>", methods=["post","get"])
 def gformT(cname=''):
