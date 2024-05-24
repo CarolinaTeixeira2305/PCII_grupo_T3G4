@@ -49,7 +49,7 @@ class Filme(Gclass):
     @classmethod
     def get_all_filmes(cls):
         return [cls.obj[cod] for cod in cls.lst]
-        @property
+    @property
     def foto(self):
         return self._foto
     @foto.setter
