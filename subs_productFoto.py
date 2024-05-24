@@ -9,15 +9,9 @@ from flask import Flask, render_template, request, session
 from werkzeug.utils import secure_filename
 import os
 
-from classes.bilhete import Bilhete
-from classes.cliente import Cliente
+
 from classes.filme import Filme
-from classes.filmefun import FilmeFun
-from classes.funcionario import Funcionario
-from classes.menu import Menu
-from classes.reviews import Reviews
-from classes.sessao import Sessao
-from classes.userlogin import Userlogin
+
 
 
 prev_option = ""
@@ -25,7 +19,7 @@ img = ""
 
 
 
-def productFoto(app,cname='',submenu=""):
+def filmeFoto(app,cname='',submenu=""):
     global img
     global prev_option
     ulogin=session.get("user")
@@ -121,7 +115,7 @@ def productFoto(app,cname='',submenu=""):
                 
                 
             print("obj._foto>>>>>>",obj._foto)
-        return render_template("productform.html", butshow=butshow, butedit=butedit,
+        return render_template("filmeform.html", butshow=butshow, butedit=butedit,
                         cname=cname, obj=obj,att=cl.att,header=cl.header,des=cl.des,
                         ulogin=session.get("user"),auto_number=cl.auto_number,
                         img=img,
