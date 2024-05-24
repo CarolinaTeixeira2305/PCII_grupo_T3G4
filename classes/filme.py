@@ -15,13 +15,14 @@ class Filme(Gclass):
     #fielde description for use in
     des=["Code", "Name", "Preco"]
     # Constructor: Called when an object is instantiated
-    def __init__(self, codFilme, nomeF, precoF):
+    def __init__(self, codFilme, nomeF, precoF,foto):
         super().__init__()
         # Object attributes
         if codFilme not in Filme.lst:
             self._codFilme = str(codFilme)
             self._nomeF = nomeF
             self._precoF = float(precoF)
+            self._foto=foto
             # Add the new object to the Filme list
             Filme.obj[codFilme] = self
             Filme.lst.append(codFilme)
