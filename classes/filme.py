@@ -13,7 +13,7 @@ class Filme(Gclass):
     #class header title
     header="Films"
     #fielde description for use in
-    des=["Code", "Name", "Preco"]
+    des=["Code", "Name", "Preco","Foto"]
     # Constructor: Called when an object is instantiated
     def __init__(self, codFilme, nomeF, precoF,foto):
         super().__init__()
