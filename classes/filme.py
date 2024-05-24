@@ -9,7 +9,7 @@ class Filme(Gclass):
     nkey = 1
     
     # class attributes, identifier attribute must be the first one on the list
-    att = ['_codFilme','_nomeF','_precoF']
+    att = ['_codFilme','_nomeF','_precoF','_foto']
     #class header title
     header="Films"
     #fielde description for use in
