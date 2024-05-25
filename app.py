@@ -29,7 +29,7 @@ prev_option = ""
 submenu = ""
 app.secret_key = 'FILME_SECRET_KEY'
 
-upload_folder = os.path.join('static', 'ProductFotos')
+upload_folder = os.path.join('static', 'FilmeFotos')
 app.config['UPLOAD'] = upload_folder
 
 
