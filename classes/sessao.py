@@ -4,7 +4,7 @@ from classes.gclass import Gclass
 from classes.filme import Filme
 import datetime
 
-class Sessao(Gclass):
+class Sessão(Gclass):
     obj = dict()
     lst = list()
     pos = 0
@@ -34,8 +34,8 @@ class Sessao(Gclass):
             print('O filme', codFilme, 'não existe')
         
         # Add the new object to the Filme list
-        Sessao.obj[codFilme] = self
-        Sessao.lst.append(codFilme)
+        Sessão.obj[codFilme] = self
+        Sessão.lst.append(codFilme)
     # Object properties
     # codFilme property getter method
     @property

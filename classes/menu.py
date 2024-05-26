@@ -55,3 +55,6 @@ class Menu(Gclass):
     @property 
     def nomeM(self):
         return self._nomeM
+    @property 
+    def Menuobj(self):
+        return Menu.obj()
