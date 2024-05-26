@@ -25,12 +25,23 @@
                 <label for="{{'_quantidade'}}">{{"Quantidade"}}:</label>
                   <input type="text" disabled id="{{'_quantidade'}}" name="{{'_quantidade'}}" value="{{obj[_quantidade]}}" size="30"/>
                 <br><br>
-                 <label for="{{'_codFilme'}}">{{"Código do Filme"}}:</label>
-                   <input type="text" disabled id="{{'_codFilme'}}" name="{{'_codFilme'}}" value="{{obj[_codFilme]}}" size="30"/>
+                 Filme:
+                 
+                     <select name="_codFilme" id="_codFilme"  >
+                     	{% for valor in objFilme.keys() %}               
+                     		<option value="{{valor}}"> {{valor}} - {{objFilme[valor].nomeF}}</option>
+                     	 {% endfor %}
+                     </select>        
                  <br><br>
-                  <label for="{{'_codMenu'}}">{{"Código do Menu"}}:</label>
-                    <input type="text" disabled id="{{'_codMenu'}}" name="{{'_codMenu'}}" value="{{obj[_codMenu]}}" size="30"/>
-                  <br><br>
+                  Menu:
+                  
+                      <select name="_codMenu" id="_codMenu"  >
+                      	{% for valor in objMenu.keys() %}               
+                      		<option value="{{valor}}"> {{valor}} - {{objMenu[valor].nomeM}}</option>
+                      	 {% endfor %}
+                      </select>         </form>
+                  <br>
+               
                
         </form>
         <br>
