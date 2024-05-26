@@ -13,7 +13,7 @@ from classes.filmefun import FilmeFun
 from classes.funcionario import Funcionario
 from classes.menu import Menu
 from classes.reviews import Reviews
-from classes.sessao import Sessao
+from classes.sessao import Sessão
 from classes.userlogin import Userlogin
 
 

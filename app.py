@@ -10,7 +10,7 @@ from classes.filmefun import FilmeFun
 from classes.funcionario import Funcionario
 from classes.menu import Menu
 from classes.reviews import Reviews
-from classes.sessao import Sessao
+from classes.sessao import Sessão
 from classes.userlogin import Userlogin
 
 app = Flask(__name__)
@@ -22,7 +22,7 @@ FilmeFun.read(filename + 'Filmedata.db')
 Funcionario.read(filename + "Filmedata.db")
 Menu.read(filename + 'Filmedata.db')
 Reviews.read(filename + 'Filmedata.db')
-Sessao.read(filename + 'Filmedata.db')
+Sessão.read(filename + 'Filmedata.db')
 Userlogin.read(filename + "Filmedata.db")
 
 prev_option = ""
@@ -36,7 +36,6 @@ app.config['UPLOAD'] = upload_folder
 import subs_login as lsub
 import subs_gform as gfsub
 import subs_gformT as gfTsub
-import subs_hform as gfhsub
 import subs_subform as gfsubsub
 import subs_filmeFoto as filmeFotosub
 import subs_gform1 as gfsub1
@@ -87,13 +86,7 @@ def gformT(cname=''):
     submenu = request.args.get("subm")
     return gfTsub.gformT(cname,submenu)
 
-@app.route("/hform/<cname>", methods=["post","get"])
-def hform(cname=''):
-    submenu = request.args.get("subm")
-    return gfhsub.hform(cname,submenu)
-
-
-        
+     
 @app.route("/subform/<cname>", methods=["post","get"])
 def subform(cname=""):
     submenu = request.args.get("subm")

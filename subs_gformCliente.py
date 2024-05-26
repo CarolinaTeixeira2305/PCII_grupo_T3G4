@@ -14,7 +14,7 @@ from classes.filmefun import FilmeFun
 from classes.funcionario import Funcionario
 from classes.menu import Menu
 from classes.reviews import Reviews
-from classes.sessao import Sessao
+from classes.sessao import Sessão
 from classes.userlogin import Userlogin
 
 prev_option = ""
@@ -75,7 +75,7 @@ def gformCliente(cname='',submenu=""):
             for att in cl.att:
                 obj[att] = ""
         return render_template("gformCliente.html", butshow=butshow, butedit=butedit,
-                        cname=cname, obj=obj,objFilme=Filme.obj, att=cl.att,header=cl.header,des=cl.des,
+                        cname=cname, obj=obj,objFilme=Filme.obj,objMenu=Menu.obj, att=cl.att,header=cl.header,des=cl.des,
                         ulogin=session.get("user"),
                         usergroup=session.get("usergroup"),auto_number=cl.auto_number,
                         submenu=submenu)
