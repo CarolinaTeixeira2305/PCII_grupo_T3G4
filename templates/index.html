@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block content %}
+    <style>
+        .centered-title {
+            position: fixed;                    /* Fix the position on the screen */
+            top: 50%;                           /* Center vertically */
+            left: 50%;                          /* Center horizontally */
+            transform: translate(-50%, -50%);   /* Adjust the exact center */
+            background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent white background */
+            color: rgba(140, 45, 25, 1);        /* Dark red text color */
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+            font-size: 50px;                    /* Increase the font size */
+            white-space: nowrap;                /* Ensure text stays on one line */
+            display: inline-block;              /* Allow the container to adjust to the width of the text */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        
+        body {
+            background-image: url('static/images/inicio.jpg');       /* Specify the path to your image */
+            background-size: cover;                                   /* Cover the entire background */
+            background-repeat: no-repeat;                     /* Prevent the background from repeating */
+            height: 100vh;                                   /* Full height */
+            margin: 0;                                        /* Remove default margin */
+        }
+    </style>
+
+    <div class="centered-title">
+        <h1>Cinema FEUP</h1>
+    </div>
+{% endblock %}

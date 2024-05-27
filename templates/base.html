@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cinema FEUP</title>
+    {% block title %}
+    {% endblock %}
+  </head>
+    <body>
+        <nav>
+            <ul class="menu">
+                {% if ulogin == None %}
+                    <li><a class="button" href="/login">Login</a></li>
+                    <li><a class="button" href="/register">Registo de novo cliente</a></li>
+                
+                {% else %}
+                     
+                                  
+                                    
+                    {% if usergroup == "funcionario" or usergroup == "admin" %} 
+                    
+                    <li><a class="button" href="/logoff">Logoff</a></li> 
+                      <li><a class="button" href="/gformBilhete/Bilhete">Bilhetes</a></li>
+                      <li><a class="button" href="/gform/Menu">Menu</a></li>
+                      <li><a class="button" href="/gform_sessao/Sessão">Sessão</a></li>
+                      <li><a class="button" href="/filmeform">Filmes</a></li>
+                    <li><a class="button" style="color:pink">User: {{ulogin}}</a></li>
+                        
+                    {% endif %}
+                    
+                    {% if usergroup == "cliente" or usergroup == "client" %}
+                        
+                    
+                    <li><a class="button" href="/logoff">Logoff</a></li> 
+                      <li><a class="button" href="/gformCliente/Bilhete">Bilhetes</a></li>
+                      <li><a class="button" href="/menucliente">Menu</a></li>
+                      <li><a class="button" href="/catalogo">Catálogo</a></li>
+                      <li><a class="button" href="/gform1/Reviews">Reviews</a></li>
+                    <li><a class="button" style="color:pink">User: {{ulogin}}</a></li>
+                    {% endif %}
+                    
+                    
+                {% endif %}
+            </ul>
+        </nav>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="dados">
+        <img src="{{ url_for('static', filename='images/Bilhete.png') }}" alt="film" width="300" height="200">
+        <h1>Compra de bilhetes</h1>
+        <br>
+        <button id="edit" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=edit'" class="button1">Edit</button>
+        <button id="delete" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=delete'" class="button1">Delete</button>
+        <button id="insert" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=insert'" class="button1">Insert</button>
+        <button id="save" type="submit" form="form" class="button1" {{butedit}}>Save</button>
+        <button id="cancel" type="button" {{butedit}} onclick="window.location.href = '/gformCliente/{{cname}}?option=cancel'" class="button1">Cancel</button>
+        <br><br>
+        <form id="form" action="/gformCliente/{{cname}}?option=save" method="post">
+            <label for="_codBilhete">{{ "Código do Bilhete" }}:</label>
+            {% if butedit == 'enabled' and auto_number == 1 %}
+                <input type="text" disabled id="_codBilhete" name="_codBilhete" value="{{ obj['_codBilhete'] }}" size="30"/>
+            {%else%}                  
+                <input type="text" {{butedit}} id="_codBilhete" name="_codBilhete" value="{{ obj['_codBilhete'] }}" size="30"/>
+            {%endif%}
+            <br><br>
+            <label for="_quantidade">{{ "Quantidade" }}:</label>
+            {% if butedit == 'enabled' and auto_number == 1 %}
+                <input type="text" disabled id="_quantidade" name="_quantidade" value="{{ obj['_quantidade'] }}" size="30"/>
+            {%else%}                  
+                <input type="text" {{butedit}} id="_quantidade" name="_quantidade" value="{{ obj['_quantidade'] }}" size="30"/>
+            {%endif%}
+            <br><br>
+            <label for="_codFilme">Filme:</label>
+            <select name="_codFilme" id="_codFilme" {% if not butedit %} disabled {% endif %} onchange="calcularPrecoBilhete()">
+                {% for valor in filmes %}
+                    <option value="{{ valor.codFilme }}" data-preco="{{ valor.precoF }}">{{ valor.codFilme }} - {{ valor.nomeF }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <label for="_codMenu">Menu:</label>
+            <select name="_codMenu" id="_codMenu" {% if not butedit %} disabled {% endif %} onchange="calcularPrecoBilhete()">
+                {% for valor1 in menus %}
+                    <option value="{{ valor1.codM }}" data-preco="{{ valor1.precoM }}">{{ valor1.codM }} - {{ valor1.nomeM }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <label for="_precoB">Preço do Bilhete:</label>
+            <input type="text" disabled id="_precoB" name="_precoB" value="{{ precoBilhete }}" size="30" />
+            <br><br>
+             <label for="_ncliente">Cliente:</label>
+             <input type="text" disabled id="_ncliente" name="_ncliente" value={{session.get("user")}} size="30" />
+            
+        </form>
+    <br>
+    <button id="first" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=first'" class="button1">First</button>
+    <button id="previous" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=previous'" class="button1">Previous</button>
+    <button id="next" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=next'" class="button1">Next</button>
+    <button id="last" type="button" {{butshow}} onclick="window.location.href = '/gformCliente/{{cname}}?option=last'" class="button1">Last</button>
+</div>
+    
+    <script>
+        function calcularPrecoBilhete() {
+            var selectFilme = document.getElementById("_codFilme");
+            var selectMenu = document.getElementById("_codMenu");
+            var precoFilme = parseFloat(selectFilme.options[selectFilme.selectedIndex].getAttribute('data-preco'));
+            var precoMenu = parseFloat(selectMenu.options[selectMenu.selectedIndex].getAttribute('data-preco'));
+            var precoBilhete = precoFilme + precoMenu;
+            document.getElementById("_precoB").value = precoBilhete.toFixed(2);
+        }
+    </script>
+{% endblock %}

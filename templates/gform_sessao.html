@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block content %}
+
+    
+ <div class = "dados">
+     <img src="/static/images/ni.jpg" alt="ni" width="300" height="200">
+     <h1>{{"Adicionar sessões"}}</h1>
+
+     <table>
+        <tr>
+            {% for header in desl %}
+                <th>{{ header }}</th>
+            {% endfor %}    
+        </tr>
+        {% for ob in objl %}
+            <tr>
+                {% for key in attl %}
+                    <td>{{ ob[key] }}</td>
+                {% endfor %}
+                <td>
+                    <button id="delrow" type="button" {{ butshow }} onclick="window.location.href = '/gformT/{{ cname }}?option=delrow{{ loop.index0 }}'" class="button1">-</button>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <form id="formrow" action="/gformT/{{ cname }}?option=saverow" method="post">
+                {% for key in attl %}
+                    <td><input type="text" id="{{ key }}" name="{{ key }}" value="" size="20" /></td>
+                {% endfor %}
+               
+                <td style="text-align: center;">
+                    <button id="cancelrow" type="button" onclick="window.location.href = '/gformT/{{ cname }}?option=cancelrow'" class="button1" style="padding: 10px 20px; font-size: 16px; width: 100px; margin: 5px;">Sessões</button>
+                </td>
+            </form>
+        </tr>
+    </table>
+ </div>
+    
+{% endblock %}
